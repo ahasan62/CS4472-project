@@ -3,6 +3,7 @@ package bank.utils;
 import java.util.Calendar;
 
 public class FeesCalculator {
+//	(-5, -5, false, 6)
 	public double calculateWithdrawalFee(double amount, double accountBalance, boolean student, int dayOfWeek) {
 		// Calculate fee percentage
 		double feePercentage;
@@ -10,6 +11,7 @@ public class FeesCalculator {
 		if (student) {
 			// Check if it's weekend
 			if ((dayOfWeek == Calendar.SATURDAY) || (dayOfWeek == Calendar.SUNDAY)) {
+				System.out.println(Calendar.FRIDAY);
 				feePercentage = 0.001;
 			} else {
 				feePercentage = 0.0;
