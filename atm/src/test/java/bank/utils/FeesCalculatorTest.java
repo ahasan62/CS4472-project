@@ -20,10 +20,6 @@ class FeesCalculatorTest {
 
 	@Test
 	void withdrawalTest() {
-//		assertEquals(0.2, calculator.calculateWithdrawalFee(200, 1000, false, 0));		//pass
-//		assertEquals(0.01, calculator.calculateWithdrawalFee(200, 1000, false, 0));	//fail
-		///
-		
 		assertEquals(0.0, calculator.calculateWithdrawalFee(-5, -5, true, 1));
 		assertEquals(-0.015, calculator.calculateWithdrawalFee(-5, -5, false, 1));
 		assertEquals(-0.005, calculator.calculateWithdrawalFee(-5, -5, true, 6));
@@ -428,6 +424,31 @@ class FeesCalculatorTest {
 		assertEquals(0.5750000000000001, calculator.calculateDepositInterest(115, 15000, true));
 		assertEquals(-0.05, calculator.calculateDepositInterest(-50, 1750, false));
 		
+		
+	}
+	
+	@Test
+	void TransferTest() {
+		// amount, FromAccountBalance, ToAccountBalance, student
+		assertEquals(0.1, calculator.calculateTransferFee(150, 1800, 500, true));
+		assertEquals(0.05, calculator.calculateTransferFee(150, 1800, 1500, true));
+		assertEquals(0.05, calculator.calculateTransferFee(150, 2500, 500, true));
+		assertEquals(0.025, calculator.calculateTransferFee(150, 2500, 1500, true));
+		
+		assertEquals(0.05, calculator.calculateTransferFee(250, 1500, 500, true));
+		assertEquals(0.025, calculator.calculateTransferFee(250, 1500, 1500, true));
+		assertEquals(0.25, calculator.calculateTransferFee(250, 2500, 500, true));
+		assertEquals(0.125, calculator.calculateTransferFee(250, 2500, 1500, true));
+		
+		assertEquals(0.2, calculator.calculateTransferFee(50, 3500, 1500, false));
+		assertEquals(0.1, calculator.calculateTransferFee(50, 3500, 2500, false));
+		assertEquals(1, calculator.calculateTransferFee(50, 4500, 1500, false));
+		assertEquals(0.5, calculator.calculateTransferFee(50, 4500, 2500, false));
+		
+		assertEquals(0.2, calculator.calculateTransferFee(150, 1500, 500, false));
+		assertEquals(0.1, calculator.calculateTransferFee(150, 1500, 1500, false));
+		assertEquals(0.5, calculator.calculateTransferFee(150, 2500, 500, false));
+		assertEquals(0.25, calculator.calculateTransferFee(150, 2500, 1500, false));
 		
 	}
 	

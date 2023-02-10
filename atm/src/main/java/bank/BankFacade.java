@@ -26,7 +26,7 @@ public class BankFacade {
 		super();
 		this.dbHandler = dbHandler;
 		
-		transactions = new HashMap<>();
+		transactions = new HashMap<TransactionType, BankTransaction>();
 		transactions.put(TransactionType.Withdrawal, withdrawal);
 		transactions.put(TransactionType.Deposit, deposit);
 		transactions.put(TransactionType.Transfer, transfer);
