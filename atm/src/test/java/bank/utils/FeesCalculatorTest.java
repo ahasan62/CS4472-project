@@ -20,6 +20,10 @@ class FeesCalculatorTest {
 
 	@Test
 	void withdrawalTest() {
+//		assertEquals(0.2, calculator.calculateWithdrawalFee(200, 1000, false, 0));		//pass
+//		assertEquals(0.01, calculator.calculateWithdrawalFee(200, 1000, false, 0));	//fail
+		///
+		
 		assertEquals(0.0, calculator.calculateWithdrawalFee(-5, -5, true, 1));
 		assertEquals(-0.015, calculator.calculateWithdrawalFee(-5, -5, false, 1));
 		assertEquals(-0.005, calculator.calculateWithdrawalFee(-5, -5, true, 6));
@@ -426,31 +430,50 @@ class FeesCalculatorTest {
 		
 		
 	}
-	
 	@Test
-	void TransferTest() {
-		// amount, FromAccountBalance, ToAccountBalance, student
-		assertEquals(0.1, calculator.calculateTransferFee(150, 1800, 500, true));
-		assertEquals(0.05, calculator.calculateTransferFee(150, 1800, 1500, true));
-		assertEquals(0.05, calculator.calculateTransferFee(150, 2500, 500, true));
-		assertEquals(0.025, calculator.calculateTransferFee(150, 2500, 1500, true));
+	void BankTransferTest() { 
+		//original
+		assertEquals(0.1,calculator.calculateTransferFee(100, 1000, 500, true));
+		//flip at 4
+		assertEquals(0.05,calculator.calculateTransferFee(100, 1000, 1500, true));
+		//flip at 3
+		assertEquals(0.05,calculator.calculateTransferFee(100, 2500, 500, true));
+		// flip at 7 
+		assertEquals(0.025,calculator.calculateTransferFee(100, 2500, 1500, true));
+
 		
-		assertEquals(0.05, calculator.calculateTransferFee(250, 1500, 500, true));
-		assertEquals(0.025, calculator.calculateTransferFee(250, 1500, 1500, true));
-		assertEquals(0.25, calculator.calculateTransferFee(250, 2500, 500, true));
-		assertEquals(0.125, calculator.calculateTransferFee(250, 2500, 1500, true));
+		//flip at 2
+		assertEquals(0.05,calculator.calculateTransferFee(300, 1000, 500, true));
+		//flip at 11
+		assertEquals(0.025,calculator.calculateTransferFee(100, 1000, 1500, true));
+		//flip at 10
+		assertEquals(0.25,calculator.calculateTransferFee(100, 2500, 500, true));
+		//flip at 14
+		assertEquals(0.125,calculator.calculateTransferFee(100, 2500, 1500, true));
+
 		
-		assertEquals(0.2, calculator.calculateTransferFee(50, 3500, 1500, false));
-		assertEquals(0.1, calculator.calculateTransferFee(50, 3500, 2500, false));
-		assertEquals(1, calculator.calculateTransferFee(50, 4500, 1500, false));
-		assertEquals(0.5, calculator.calculateTransferFee(50, 4500, 2500, false));
+		//flip at 1
+		assertEquals(0.2,calculator.calculateTransferFee(50, 3500, 1500, false));
+		//flip at 19
+		assertEquals(0.1,calculator.calculateTransferFee(50, 3500, 2500, false));
+		//flip at 18 
+		assertEquals(1,calculator.calculateTransferFee(50, 4500, 1500, false));
+		//flip at 22
+		assertEquals(0.5,calculator.calculateTransferFee(50, 4500, 2500, false));
+
 		
-		assertEquals(0.2, calculator.calculateTransferFee(150, 1500, 500, false));
-		assertEquals(0.1, calculator.calculateTransferFee(150, 1500, 1500, false));
-		assertEquals(0.5, calculator.calculateTransferFee(150, 2500, 500, false));
-		assertEquals(0.25, calculator.calculateTransferFee(150, 2500, 1500, false));
+		//flip at 17 
+		assertEquals(0.2,calculator.calculateTransferFee(150, 1500, 500, false));
+		//flip at 26 
+		assertEquals(0.1,calculator.calculateTransferFee(150, 1500, 1500, false));
+		//flip at 25
+		assertEquals(0.5,calculator.calculateTransferFee(150, 2500, 500, false));
+		//flip at 29
+		assertEquals(0.25,calculator.calculateTransferFee(150, 2500, 1500, false));
+
 		
 	}
+	
 	
 }
 
