@@ -2,6 +2,8 @@ package bank.utils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Calendar;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -472,6 +474,24 @@ class FeesCalculatorTest {
 		assertEquals(0.25 / 100,calculator.calculateTransferFee(150, 2500, 1500, false)/150);
 
 		
+	}
+	
+	@Test
+	void BankWithdrawTest() {
+		// amount=1, accountBalance=1000, student=true, day=Saturday
+		assertEquals(0.001, calculator.calculateWithdrawalFee(1, 1000, true, Calendar.SATURDAY));
+		
+		// amount=1, accountBalance=1000, student=true, day=Monday
+		assertEquals(0, calculator.calculateWithdrawalFee(1, 1000, true, Calendar.MONDAY));
+		
+		// amount=1, accountBalance=300, student=false, day=Tuesday
+		assertEquals(0.003, calculator.calculateWithdrawalFee(1, 300, false, Calendar.TUESDAY));
+		
+		// amount=1, accountBalance=4000, student=false, day=Wednesday
+		assertEquals(0.001, calculator.calculateWithdrawalFee(1, 4000, false, Calendar.WEDNESDAY));
+		
+		// amount=1, accountBalance=7000, student=false, day=Thursday
+		assertEquals(0, calculator.calculateWithdrawalFee(1, 7000, false, Calendar.THURSDAY));
 	}
 	
 	
