@@ -433,43 +433,43 @@ class FeesCalculatorTest {
 	@Test
 	void BankTransferTest() { 
 		//original
-		assertEquals(0.1,calculator.calculateTransferFee(100, 1000, 500, true));
+		assertEquals(0.1 / 100,calculator.calculateTransferFee(100, 1000, 500, true)/100);
 		//flip at 4
-		assertEquals(0.05,calculator.calculateTransferFee(100, 1000, 1500, true));
+		assertEquals(0.05 /100,calculator.calculateTransferFee(100, 1000, 1500, true)/100);
 		//flip at 3
-		assertEquals(0.05,calculator.calculateTransferFee(100, 2500, 500, true));
+		assertEquals(0.05 / 100,calculator.calculateTransferFee(100, 2500, 500, true)/100);
 		// flip at 7 
-		assertEquals(0.025,calculator.calculateTransferFee(100, 2500, 1500, true));
+		assertEquals(0.025 / 100,calculator.calculateTransferFee(100, 2500, 1500, true)/100);
 
 		
 		//flip at 2
-		assertEquals(0.05,calculator.calculateTransferFee(300, 1000, 500, true));
+		assertEquals(0.05 / 100,calculator.calculateTransferFee(300, 1000, 500, true)/300);
 		//flip at 11
-		assertEquals(0.025,calculator.calculateTransferFee(100, 1000, 1500, true));
+		assertEquals(0.025 / 100,calculator.calculateTransferFee(300, 1000, 1500, true)/300);
 		//flip at 10
-		assertEquals(0.25,calculator.calculateTransferFee(100, 2500, 500, true));
+		assertEquals(0.25 / 100,calculator.calculateTransferFee(300, 2500, 500, true)/300);
 		//flip at 14
-		assertEquals(0.125,calculator.calculateTransferFee(100, 2500, 1500, true));
+		assertEquals(0.125 / 100,calculator.calculateTransferFee(300, 2500, 1500, true)/300);
 
 		
 		//flip at 1
-		assertEquals(0.2,calculator.calculateTransferFee(50, 3500, 1500, false));
+		assertEquals(0.2 / 100,calculator.calculateTransferFee(50, 3500, 1500, false)/50);
 		//flip at 19
-		assertEquals(0.1,calculator.calculateTransferFee(50, 3500, 2500, false));
+		assertEquals(0.1 / 100,calculator.calculateTransferFee(50, 3500, 2500, false)/50);
 		//flip at 18 
-		assertEquals(1,calculator.calculateTransferFee(50, 4500, 1500, false));
+		assertEquals(1 / 100,calculator.calculateTransferFee(50, 4500, 1500, false)/50);
 		//flip at 22
-		assertEquals(0.5,calculator.calculateTransferFee(50, 4500, 2500, false));
+		assertEquals(0.5 / 100,calculator.calculateTransferFee(50, 4500, 2500, false)/50);
 
 		
 		//flip at 17 
-		assertEquals(0.2,calculator.calculateTransferFee(150, 1500, 500, false));
+		assertEquals(0.2 / 100,calculator.calculateTransferFee(150, 1500, 500, false)/150);
 		//flip at 26 
-		assertEquals(0.1,calculator.calculateTransferFee(150, 1500, 1500, false));
+		assertEquals(0.1 / 100,calculator.calculateTransferFee(150, 1500, 1500, false)/150);
 		//flip at 25
-		assertEquals(0.5,calculator.calculateTransferFee(150, 2500, 500, false));
+		assertEquals(0.5 / 100,calculator.calculateTransferFee(150, 2500, 500, false)/150);
 		//flip at 29
-		assertEquals(0.25,calculator.calculateTransferFee(150, 2500, 1500, false));
+		assertEquals(0.25 / 100,calculator.calculateTransferFee(150, 2500, 1500, false)/150);
 
 		
 	}
