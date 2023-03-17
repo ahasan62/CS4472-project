@@ -432,6 +432,19 @@ class FeesCalculatorTest {
 		
 		
 	}
+	
+	@Test
+	void interestRateTest() {
+		assertEquals(0.005, calculator.calculateDepositInterest(200, 1000, true) / 200);
+		assertEquals(0.0025, calculator.calculateDepositInterest(200, 400, true) / 200);
+		assertEquals(0.005, calculator.calculateDepositInterest(38, 6000, true) / 38);
+		assertEquals(0.002, calculator.calculateDepositInterest(38, 4000, true) / 38);
+		assertEquals(0.008, calculator.calculateDepositInterest(300, 3000, false) / 300);
+		assertEquals(0.004, calculator.calculateDepositInterest(300, 2300, false) / 300);
+		assertEquals(0.005, calculator.calculateDepositInterest(200, 12000, false) / 200);
+		assertEquals(0.001, calculator.calculateDepositInterest(200, 8000, false) / 200);
+	}
+	
 	@Test
 	void BankTransferTest() { 
 		//original
